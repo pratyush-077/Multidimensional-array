@@ -1,0 +1,304 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+     int rows1,rows2 , rows3 ;
+     int cols1 ,cols2 , cols3 ;
+     
+    cin>>rows1;
+    cin>>cols1;
+    cin>>rows2;
+    cin>>cols2;
+    cin>>rows3;
+    cin>>cols3;
+    
+    int M1[rows1][cols1];
+    int M2[rows2][cols2];
+    int M3[rows3][cols3];
+    
+   
+    cout << "Enter the elements of the 3x3 matrix M1:" << endl;
+
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols1; j++) {
+            cin >> M1[i][j];
+        }
+    }
+
+    cout << "The first matrix is:" << endl;
+
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols1; j++) {
+            cout << M1[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    cout << "Enter the elements of the 3x3 matrix M2:" << endl;
+
+    for (int k = 0; k < rows2; k++) {
+        for (int l = 0; l < cols2; l++) {
+            cin >> M2[k][l];
+        }
+    }
+
+    cout << "The second matrix is:" << endl;
+
+    for (int k= 0; k < rows2; k++) {
+        for (int l = 0; l < cols2; l++) {
+            cout << M2[k][l] << " ";
+        }
+        cout << endl;
+    }
+    
+    if(rows1==rows2 && cols1==cols2){
+       cout<<M3[rows3][cols3];
+        for (int k = 0; k < rows2; k++) {
+          for (int l = 0; l < cols2; l++) {
+             M3[rows3][cols3]= M1[rows1][cols1] + M2[rows2][cols2];
+             cout<<M3[rows3][cols3]<< " ";
+        }
+        cout << endl;
+      }
+    }
+
+    return 0;
+}
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int rows1, rows2, rows3;
+//     int cols1, cols2, cols3;
+
+//     cin >> rows1 >> cols1;
+//     cin >> rows2 >> cols2;
+//     cin >> rows3 >> cols3;
+
+//     int M1[rows1][cols1];
+//     int M2[rows2][cols2];
+//     int M3[rows3][cols3];
+//     cout << "Enter the elements of the matrix M1:" << endl;
+//     for (int i = 0; i < rows1; i++) {
+//         for (int j = 0; j < cols1; j++) {
+//             cin >> M1[i][j];
+//         }
+//     }
+//     cout << "The first matrix is:" << endl;
+//     for (int i = 0; i < rows1; i++) {
+//         for (int j = 0; j < cols1; j++) {
+//             cout << M1[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+//     cout << "Enter the elements of the matrix M2:" << endl;
+//     for (int i = 0; i < rows2; i++) {
+//         for (int j = 0; j < cols2; j++) {
+//             cin >> M2[i][j];
+//         }
+//     }
+//     cout << "The second matrix is:" << endl;
+//     for (int i = 0; i < rows2; i++) {
+//         for (int j = 0; j < cols2; j++) {
+//             cout << M2[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+
+//     if (rows1 == rows2 && cols1 == cols2) {
+//         for (int i = 0; i < rows1; i++) {
+//             for (int j = 0; j < cols1; j++) {
+//                 M3[i][j] = M1[i][j] + M2[i][j];
+//             }
+//         }
+//         cout << "The resultant matrix after addition is:" << endl;
+//         for (int i = 0; i < rows3; i++) {
+//             for (int j = 0; j < cols3; j++) {
+//                 cout << M3[i][j] << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows1, cols1;
+    int rows2, cols2;
+    cout << "Enter number of rows and columns for Matrix 1: ";
+    cin >> rows1 >> cols1;
+    cout << "Enter number of rows and columns for Matrix 2: ";
+    cin >> rows2 >> cols2;
+
+    if (cols1 != rows2) {
+        cout << "Matrix multiplication not possible." << endl;
+        return 1;
+    }
+
+    int M1[rows1][cols1], M2[rows2][cols2], M3[rows1][cols2];
+    cout << "Enter elements of Matrix M1:" << endl;
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols1; j++) {
+            cin >> M1[i][j];
+        }
+    }
+    cout << "Enter elements of Matrix M2:" << endl;
+    for (int i = 0; i < rows2; i++) {
+        for (int j = 0; j < cols2; j++) {
+            cin >> M2[i][j];
+        }
+    }
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            M3[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            for (int k = 0; k < cols1; k++) {
+                M3[i][j] += M1[i][k] * M2[k][j];
+            }
+        }
+    }
+    cout << "Resultant matrix M3:" << endl;
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            cout << M3[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     int rows1, rows2, rows3;
+//     int cols1, cols2, cols3;
+
+//     cin >> rows1 >> cols1;
+//     cin >> rows2 >> cols2;
+//     cin >> rows3 >> cols3;
+
+//     int M1[rows1][cols1];
+//     int M2[rows2][cols2];
+//     int M3[rows3][cols3];
+//     cout << "Enter the elements of the matrix M1:" << endl;
+//     for (int i = 0; i < rows1; i++) {
+//         for (int j = 0; j < cols1; j++) {
+//             cin >> M1[i][j];
+//         }
+//     }
+//     cout << "The first matrix is:" << endl;
+//     for (int i = 0; i < rows1; i++) {
+//         for (int j = 0; j < cols1; j++) {
+//             cout << M1[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+//     cout << "Enter the elements of the matrix M2:" << endl;
+//     for (int i = 0; i < rows2; i++) {
+//         for (int j = 0; j < cols2; j++) {
+//             cin >> M2[i][j];
+//         }
+//     }
+//     cout << "The second matrix is:" << endl;
+//     for (int i = 0; i < rows2; i++) {
+//         for (int j = 0; j < cols2; j++) {
+//             cout << M2[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+
+//     if (rows1 == rows2 && cols1 == cols2) {
+//         for (int i = 0; i < rows1; i++) {
+//             for (int j = 0; j < cols1; j++) {
+//                 M3[i][j] = M1[i][j] + M2[i][j];
+//             }
+//         }
+//         cout << "The resultant matrix after addition is:" << endl;
+//         for (int i = 0; i < rows3; i++) {
+//             for (int j = 0; j < cols3; j++) {
+//                 cout << M3[i][j] << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows1, cols1;
+    int rows2, cols2;
+    cout << "Enter number of rows and columns for Matrix 1: ";
+    cin >> rows1 >> cols1;
+    cout << "Enter number of rows and columns for Matrix 2: ";
+    cin >> rows2 >> cols2;
+
+    if (cols1 != rows2) {
+        cout << "Matrix multiplication not possible." << endl;
+        return 1;
+    }
+
+    int M1[rows1][cols1], M2[rows2][cols2], M3[rows1][cols2];
+    cout << "Enter elements of Matrix M1:" << endl;
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols1; j++) {
+            cin >> M1[i][j];
+        }
+    }
+    cout << "Enter elements of Matrix M2:" << endl;
+    for (int i = 0; i < rows2; i++) {
+        for (int j = 0; j < cols2; j++) {
+            cin >> M2[i][j];
+        }
+    }
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            M3[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            for (int k = 0; k < cols1; k++) {
+                M3[i][j] += M1[i][k] * M2[k][j];
+            }
+        }
+    }
+    cout << "Resultant matrix M3:" << endl;
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            cout << M3[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
